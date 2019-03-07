@@ -1,11 +1,14 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
 import Navigator from './Navigator';
-import Content from './Content';
 import Header from './Header';
+import Home from './Home';
+import Members from './Members';
+import Sections from './Sections';
 
 let theme = createMuiTheme({
   typography: {
@@ -180,7 +183,13 @@ class Paperbase extends React.Component {
           <div className={classes.appContent}>
             <Header onDrawerToggle={this.handleDrawerToggle} />
             <main className={classes.mainContent}>
-              <Content />
+            <Router>
+              <div>
+                <Route path="/" exact component={Home} />
+                <Route path="/members" component={Members} />
+                <Route path="/sections" component={Sections} />
+              </div>
+            </Router>
             </main>
           </div>
         </div>

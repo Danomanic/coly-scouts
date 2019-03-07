@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -19,16 +20,16 @@ const categories = [
   {
     id: 'Group',
     children: [
-      { id: 'Sections', icon: <LayersIcon />, active: true },
-      { id: 'Members', icon: <PeopleIcon /> },
+      { id: 'Sections', icon: <LayersIcon />, active: true, ahref: '/sections' },
+      { id: 'Members', icon: <PeopleIcon />, ahref: '/members' },
     ],
   },
   {
     id: 'Programme',
     children: [
-      { id: 'Meetings', icon: <GamepadIcon /> },
-      { id: 'Events', icon: <EventIcon /> },
-      { id: 'Activities', icon: <PoolIcon /> },
+      { id: 'Meetings', icon: <GamepadIcon />, ahref: '/meetings' },
+      { id: 'Events', icon: <EventIcon />, ahref: '/events' },
+      { id: 'Activities', icon: <PoolIcon />, ahref: '/activities' },
     ],
   },
 ];
@@ -110,27 +111,29 @@ function Navigator(props) {
                 {id}
               </ListItemText>
             </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
-              <ListItem
-                button
-                dense
-                key={childId}
-                className={classNames(
-                  classes.item,
-                  classes.itemActionable,
-                  active && classes.itemActiveItem,
-                )}
-              >
-                <ListItemIcon>{icon}</ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.itemPrimary,
-                    textDense: classes.textDense,
-                  }}
+            {children.map(({ id: childId, icon, active, ahref }) => (
+                <ListItem
+                  button
+                  dense
+                  key={childId}
+                  component="a"
+                  href={ahref}
+                  className={classNames(
+                    classes.item,
+                    classes.itemActionable,
+                    active && classes.itemActiveItem,
+                  )}
                 >
-                  {childId}
-                </ListItemText>
-              </ListItem>
+                  <ListItemIcon>{icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.itemPrimary,
+                      textDense: classes.textDense,
+                    }}
+                  >
+                    {childId}
+                  </ListItemText>
+                </ListItem>
             ))}
             <Divider className={classes.divider} />
           </React.Fragment>

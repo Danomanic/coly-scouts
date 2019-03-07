@@ -36,7 +36,7 @@ const styles = theme => ({
   },
 });
 
-function Content(props) {
+function Sections(props) {
   const { classes } = props;
 
   return (
@@ -72,15 +72,15 @@ function Content(props) {
       </AppBar>
       <div className={classes.contentWrapper}>
         <Typography color="textSecondary" align="center">
-          No users for this project yet
+          No users for this project yet (sections)
         </Typography>
       </div>
     </Paper>
   );
 }
 
-Content.propTypes = {
+Sections.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Content);
+export default withStyles(styles)(Sections);

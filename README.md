@@ -1,4 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Coly Scouts App
+Coly Scouts (A better name yet to be deciced), is a CMS for Scout Leaders.
+
+![](https://codi.coly.uk/uploads/upload_cc413dd81f96cd1987b82791b74b2626.png)
+
+
+## Technologies
+- [React](https://reactjs.org/)
+- [Create React App](https://github.com/facebook/create-react-app).
+- [MongoDB](https://www.mongodb.com/)
+
 
 ## Available Scripts
 

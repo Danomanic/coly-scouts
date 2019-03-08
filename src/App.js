@@ -1,14 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+// Style
 import PropTypes from 'prop-types';
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Hidden from '@material-ui/core/Hidden';
-import Navigator from './Navigator';
-import Header from './Header';
-import Home from './Home';
-import Members from './Members';
-import Sections from './Sections';
+
+// Elements
+import Navigator from './elements/Navigator';
+import Header from './elements/Header';
+
+// Routes
+import Home from './routes/Home';
+import Members from './routes/Members';
+import Sections from './routes/Sections';
 
 let theme = createMuiTheme({
   typography: {

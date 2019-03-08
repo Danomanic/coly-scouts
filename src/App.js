@@ -173,7 +173,7 @@ class Paperbase extends React.Component {
       {
         path: "/",
         exact: true,
-        header: "Home",
+        header: () => <Header onDrawerToggle={this.handleDrawerToggle} title="Home"/>,
         main: Home
       },
       {

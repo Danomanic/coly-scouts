@@ -41,7 +41,7 @@ const styles = theme => ({
 });
 
 function Header(props) {
-  const { classes, onDrawerToggle } = props;
+  const { classes, onDrawerToggle, title } = props;
 
   return (
     <React.Fragment>
@@ -92,7 +92,7 @@ function Header(props) {
           <Grid container alignItems="center" spacing={8}>
             <Grid item xs>
               <Typography color="inherit" variant="h5">
-                Sections
+                {title}
               </Typography>
             </Grid>
             <Grid item>

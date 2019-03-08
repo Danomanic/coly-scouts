@@ -20,7 +20,7 @@ const categories = [
   {
     id: 'Group',
     children: [
-      { id: 'Sections', icon: <LayersIcon />, active: true, ahref: '/sections' },
+      { id: 'Sections', icon: <LayersIcon />, ahref: '/sections' },
       { id: 'Members', icon: <PeopleIcon />, ahref: '/members' },
     ],
   },
@@ -86,7 +86,7 @@ function Navigator(props) {
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
         <ListItem className={classNames(classes.firebase, classes.item, classes.itemCategory)}>
-          Coly
+          Pioneer
         </ListItem>
         <ListItem className={classNames(classes.item, classes.itemCategory)}>
           <ListItemIcon>

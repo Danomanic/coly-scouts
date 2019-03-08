@@ -169,6 +169,25 @@ class Paperbase extends React.Component {
   render() {
     const { classes } = this.props;
 
+    const routes = [
+      {
+        path: "/",
+        exact: true,
+        header: "Home",
+        main: Home
+      },
+      {
+        path: "/sections",
+        header: () => <Header onDrawerToggle={this.handleDrawerToggle} title="Sections"/>,
+        main: Sections
+      },
+      {
+        path: "/members",
+        header: () => <Header onDrawerToggle={this.handleDrawerToggle} title="Members"/>,
+        main: Members
+      }
+    ];
+
     return (
       <MuiThemeProvider theme={theme}>
         <div className={classes.root}>
@@ -186,18 +205,34 @@ class Paperbase extends React.Component {
               <Navigator PaperProps={{ style: { width: drawerWidth } }} />
             </Hidden>
           </nav>
+          <Router>
           <div className={classes.appContent}>
-            <Header onDrawerToggle={this.handleDrawerToggle} />
+            {routes.map((route, index) => (
+              // You can render a <Route> in as many places
+              // as you want in your app. It will render along
+              // with any other <Route>s that also match the URL.
+              // So, a sidebar or breadcrumbs or anything else
+              // that requires you to render multiple things
+              // in multiple places at the same URL is nothing
+              // more than multiple <Route>s.
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                component={route.header}
+              />
+            ))}
             <main className={classes.mainContent}>
-            <Router>
+
               <div>
                 <Route path="/" exact component={Home} />
                 <Route path="/members" component={Members} />
                 <Route path="/sections" component={Sections} />
               </div>
-            </Router>
+
             </main>
           </div>
+          </Router>
         </div>
       </MuiThemeProvider>
     );
